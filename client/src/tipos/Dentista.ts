@@ -5,7 +5,6 @@ export interface Dentista {
   especialidade: string;
 }
 
-
 export type DentistaCreate = Omit<Dentista, "id">;
 
 

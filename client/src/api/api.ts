@@ -15,12 +15,17 @@ export async function apiFetch<T>(
   let data: any = null;
 
   const contentType = res.headers.get("content-type");
+
   if (contentType && contentType.includes("application/json")) {
     data = await res.json();
   }
 
   if (!res.ok) {
-    throw new Error(data?.message || "Erro na requisição");
+    const msgErro = data
+      ? JSON.stringify(data)
+      : res.statusText || "Erro desconhecido";
+
+    throw new Error(`Erro ${res.status}: ${msgErro}`);
   }
 
   return data;

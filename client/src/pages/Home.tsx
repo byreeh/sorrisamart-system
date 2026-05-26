@@ -65,17 +65,27 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="p-10">
-      <h1 className="text-3xl font-bold">SorriSmart</h1>
+      <section className="py-16 flex flex-col items-center justify-center text-center">
+        <div className="max-w-md">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+            SorriSmart
+          </h2>
 
-      <Link
-        to="/dentistas"
-        className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-colors">
-        Ver Dentistas
-      </Link>
-    </div>
+          <p className="text-muted-foreground mb-6">
+            Acesse o sistema de gestão de dentistas e veja os profissionais cadastrados.
+          </p>
+
+          <Link
+            to="/dentistas"
+            className="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground font-semibold rounded-xl shadow-md hover:bg-primary/90 hover:scale-105 transition-all duration-200"
+          >
+            Ver Dentistas
+          </Link>
+        </div>
+      </section>
       
       <section className="py-20 md:py-32 bg-background border-t border-border">
+          
           <div className="container">
 
             <h2 className="text-3xl md:text-4xl font-bold mb-2">
