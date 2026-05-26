@@ -1,7 +1,5 @@
-import { Toaster } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
+import { Routes, Route } from "react-router-dom";
 import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -17,18 +15,19 @@ function Router() {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
+
       <main className="flex-1">
-        <Switch>
-          <Route path={"/"} component={Home} />
-          <Route path={"/integrantes"} component={Integrantes} />
-          <Route path={"/sobre"} component={Sobre} />
-          <Route path={"/faq"} component={FAQ} />
-          <Route path={"/contato"} component={Contato} />
-          <Route path={"/solucao"} component={Solucao} />
-          <Route path={"/404"} component={NotFound} />
-          <Route component={NotFound} />
-        </Switch>
+        <Routes>
+          <Route path={"/"} element={<Home />} />
+          <Route path={"/integrantes"} element={<Integrantes />} />
+          <Route path={"/sobre"} element={< Sobre />} />
+          <Route path={"/faq"} element={<FAQ />} />
+          <Route path={"/contato"} element={<Contato />} />
+          <Route path={"/solucao"} element={<Solucao />} />
+          <Route path={"/404"} element={< NotFound />} />
+        </Routes>
       </main>
+
       <Footer />
     </div>
   );
@@ -38,10 +37,7 @@ function App() {
   return (
     <ErrorBoundary>
       <ThemeProvider defaultTheme="light">
-        <TooltipProvider>
-          <Toaster />
           <Router />
-        </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
   );
