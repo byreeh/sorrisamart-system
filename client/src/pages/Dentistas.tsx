@@ -1,11 +1,13 @@
+import { Link } from "react-router-dom";
+import { ArrowRight, Code2, Zap, Users } from "lucide-react";
 import { useEffect, useState } from "react";
 import {
   getAllDentistas,
   createDentista,
   deleteDentista,
-} from "../services/dentistaService";
+} from "../servicos/dentistaServico";
 
-import { Dentista } from "../types/dentista";
+import { Dentista } from "../tipos/Dentista";
 
 export default function Dentistas() {
   const [dentistas, setDentistas] = useState<Dentista[]>([]);
@@ -20,8 +22,13 @@ export default function Dentistas() {
   async function loadDentistas() {
     try {
       setLoading(true);
+
       const data = await getAllDentistas();
-      setDentistas(data);
+
+      console.log("API DATA:", data);
+
+      setDentistas(Array.isArray(data) ? data : []);
+
     } catch (err) {
       setError(err instanceof Error ? err.message : "Erro desconhecido");
     } finally {
