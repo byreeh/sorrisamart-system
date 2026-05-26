@@ -11,6 +11,7 @@ import FAQ from "./pages/FAQ";
 import Contato from "./pages/Contato";
 import Solucao from "./pages/Solucao";
 import Dentistas from "./pages/Dentistas";
+import DentistaDetalhe from "./pages/DentistaDetalhe";
 
 
 function Router() {
@@ -28,6 +29,7 @@ function Router() {
           <Route path={"/solucao"} element={<Solucao />} />
           <Route path={"/404"} element={< NotFound />} />
           <Route path="/dentistas" element={<Dentistas />} />
+          <Route path="/dentistas/:id" element={<DentistaDetalhe />} />
         </Routes>
       </main>
 

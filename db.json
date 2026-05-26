@@ -1,11 +1,10 @@
 {
   "dentistas": [
     {
+      "id": 1,
       "nome": "Renata",
       "cro": "123",
-      "especialidade": "Clínico Geral",
-      "id": "U7dkDx18vXc"
+      "especialidade": "Clínico Geral"
     }
-  ],
-  "$schema": "./node_modules/json-server/schema.json"
+  ]
 }

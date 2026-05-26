@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import {
   getAllDentistas,
@@ -109,7 +110,9 @@ export default function Dentistas() {
             className="border p-4 rounded flex justify-between"
           >
             <div>
-              <strong>{d.nome}</strong>
+              <Link to={`/dentistas/${d.id}`} className="font-bold hover:text-blue-600">
+                {d.nome}
+              </Link>
               <p className="text-sm text-gray-500">
                 {d.especialidade} · CRO {d.cro}
               </p>
