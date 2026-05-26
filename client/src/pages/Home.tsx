@@ -1,31 +1,32 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Code2, Zap, Users } from "lucide-react";
 import { useEffect, useState } from "react";
-import { getAllDentistas, createDentista } from "../tipos/Dentista";
+import { getAllDentistas } from "../servicos/dentistaServico";
+import { Dentista } from "../tipos/Dentista";
 
 export default function Home() {
-  const [dentistas, setDentistas] = useState<any[]>([]);
+  const [dentistas, setDentistas] = useState<Dentista[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-  useEffect(() => {
-
-    getAllDentistas().then(setDentistas);
-  }, []);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-  async function load() {
-    try {
-      const data = await getAllDentistas();
-      setDentistas(data);
-    } catch (err) {
-      setError("Não foi possível carregar os dentistas");
-    } finally {
-      setLoading(false);
+    async function load() {
+      try {
+        setLoading(true);
+
+        const data = await getAllDentistas();
+
+        setDentistas(Array.isArray(data) ? data : []);
+      } catch (err) {
+        console.error(err);
+        setError("Não foi possível carregar os dentistas");
+      } finally {
+        setLoading(false);
+      }
     }
-  }
 
-  load();
-}, []);
+    load();
+  }, []);
 
   return (
     <div className="min-h-screen">
@@ -69,8 +70,7 @@ export default function Home() {
 
       <Link
         to="/dentistas"
-        className="text-blue-600 underline"
-      >
+        className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-colors">
         Ver Dentistas
       </Link>
     </div>
@@ -86,21 +86,18 @@ export default function Home() {
               Profissionais registrados no sistema SorriSmart.
             </p>
 
-            {/* LOADING */}
             {loading && (
               <div className="p-6 border rounded-lg bg-muted/20">
                 Carregando dentistas...
               </div>
             )}
 
-            {/* ERROR */}
             {error && (
               <div className="p-6 border border-red-400 text-red-600 rounded-lg">
                 {error}
               </div>
             )}
 
-            {/* LISTA */}
             {!loading && !error && (
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
