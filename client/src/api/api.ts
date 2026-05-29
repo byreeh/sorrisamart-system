@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = "https://sorrisamart-system.onrender.com";
 
 export async function apiFetch<T>(
   endpoint: string,
