@@ -12,7 +12,6 @@ export default function DentistaDetalhe() {
   const [error, setError] = useState<string | null>(null);
   const [editando, setEditando] = useState(false);
 
-  // Campos de edição
   const [nome, setNome] = useState("");
   const [cro, setCro] = useState("");
   const [especialidade, setEspecialidade] = useState("");
@@ -26,7 +25,7 @@ export default function DentistaDetalhe() {
     setError(null);
 
     try {
-      const data = await getDentistaById(Number(id));
+      const data = await getDentistaById(id as string);
       setDentista(data);
       setNome(data.nome);
       setCro(data.cro);

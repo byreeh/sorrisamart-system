@@ -1,12 +1,11 @@
 export interface Dentista {
-  id?: number;
+  id?: number | string;
   nome: string;
   cro: string;
   especialidade: string;
 }
 
 export type DentistaCreate = Omit<Dentista, "id">;
-
 
 export type DentistaUpdate = Partial<DentistaCreate>;
 

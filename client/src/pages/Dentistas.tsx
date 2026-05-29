@@ -56,7 +56,7 @@ export default function Dentistas() {
     }
   }
 
-  async function remove(id?: number) {
+  async function remove(id?: number | string) {
     if (!id) return;
     setError(null);
 

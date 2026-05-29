@@ -7,7 +7,7 @@ export function getAllDentistas(): Promise<Dentista[]> {
 }
 
 
-export function getDentistaById(id: number): Promise<Dentista> {
+export function getDentistaById(id: string | number): Promise<Dentista> {
   return apiFetch<Dentista>(`/dentistas/${id}`);
 }
 
@@ -22,7 +22,7 @@ export function createDentista(
 }
 
 export function updateDentista(
-  id: number,
+  id: string | number,
   data: Dentista
 ): Promise<Dentista> {
   return apiFetch<Dentista>(`/dentistas/${id}`, {
@@ -32,7 +32,7 @@ export function updateDentista(
 }
 
 
-export function deleteDentista(id: number): Promise<void> {
+export function deleteDentista(id: string | number): Promise<void> {
   return apiFetch<void>(`/dentistas/${id}`, {
     method: "DELETE",
   });
