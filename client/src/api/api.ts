@@ -1,4 +1,5 @@
-const BASE_URL = "https://sorrisamart-system.onrender.com";
+const BASE_URL =
+  import.meta.env.VITE_API_URL || "http://localhost:3000";
 
 export async function apiFetch<T>(
   endpoint: string,

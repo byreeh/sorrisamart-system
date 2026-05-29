@@ -1,4 +1,17 @@
 {
-  "dentistas": [],
+  "dentistas": [
+    {
+      "nome": "Renata",
+      "cro": "123",
+      "especialidade": "Clínica Geral",
+      "id": "Z7p3kJY65MQ"
+    },
+    {
+      "nome": "Sofia",
+      "cro": "001",
+      "especialidade": "Clínica Geral",
+      "id": "XzadKOur25Y"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
